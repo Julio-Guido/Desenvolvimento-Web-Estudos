@@ -1,0 +1,28 @@
+.navegacao{
+    height: 160px;
+}
+.menus-navegacao{
+    flex-direction: column;
+    padding: 5px 0;
+}
+.nav-texto{
+    flex-direction: column;
+    text-align: center;
+}
+.titulo-secao{
+    text-align: center;
+}
+.margem-superior{
+    height: 10rem;
+}
+.texto-menu{
+    padding: 2px;
+}
+.dados-entrada{
+    flex-direction: column;
+}
+.caixa-entrada{
+    flex-direction: column;
+    text-align: center;
+margin: 0px;
+}

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" media="screen and (max-width:768px)" href="mobile.css">
+    <title>Calculo concreto</title>
+    <!--Calculos e eventos JS-->
+    <script>
+        function exibirCalculoEstaca() {
+            var diametro = document.getElementById("diametro-estaca").value;
+            var comprimento = document.getElementById("comprimento-estaca").value;
+            var quantidade = document.getElementById("quantidade-estaca").value;
+            var volume = Math.PI * (Math.pow(diametro,2) * comprimento);
+            var volumeTotal = (volume * quantidade);
+            document.getElementById("resultado-estaca").innerText = volume.toFixed(2);
+            document.getElementById("resultado-estaca-total").innerText = volumeTotal.toFixed(2);
+        }
+        function exibirCalculoBloco() {
+            var largura = document.getElementById("largura-bloco").value;
+            var altura = document.getElementById("altura-bloco").value;
+            var comprimento = document.getElementById("comprimento-bloco").value;
+            var quantidade = document.getElementById("quantidade-bloco").value;
+            var volume = (largura * altura * comprimento);
+            var volumeTotal = (volume * quantidade);
+            document.getElementById("resultado-bloco").innerText = volume.toFixed(2);
+            document.getElementById("resultado-bloco-total").innerText = volumeTotal.toFixed(2);
+        }
+        function exibirCalculoViga() {
+            var largura = document.getElementById("largura-viga").value;
+            var altura = document.getElementById("altura-viga").value;
+            var comprimento = document.getElementById("comprimento-viga").value;
+            var quantidade = document.getElementById("quantidade-viga").value;
+            var volume = (largura * altura * comprimento);
+            var volumeTotal = (volume * quantidade);
+            document.getElementById("resultado-viga").innerText = volume.toFixed(2);
+            document.getElementById("resultado-viga-total").innerText = volumeTotal.toFixed(2);
+        }
+        function exibirCalculoPilar() {
+            var largura = document.getElementById("largura-pilar").value;
+            var altura = document.getElementById("altura-pilar").value;
+            var comprimento = document.getElementById("comprimento-pilar").value;
+            var quantidade = document.getElementById("quantidade-pilar").value;
+            var volume = (largura * altura * comprimento);
+            var volumeTotal = (volume * quantidade);
+            document.getElementById("resultado-pilar").innerText = volume.toFixed(2);
+            document.getElementById("resultado-pilar-total").innerText = volumeTotal.toFixed(2);
+        }
+        function exibirCalculoLaje() {
+            var largura = document.getElementById("largura-laje").value;
+            var comprimento = document.getElementById("comprimento-laje").value;
+            var tipo = document.querySelector("input[name=tipo-laje]:checked").value;
+            var alturaTrilho = document.querySelector("input[name=altura-trilho]:checked").value;
+            if(tipo == "trelicada"){
+                var h8 = 0.052;
+                var h10 = 0.058;
+                var h12 = 0.063;
+                var h16 = 0.073;
+            }
+            if(tipo == "protendida"){
+                var h8 = 0.045;
+                var h10 = 0.050;
+                var h12 = 0.054;
+                var h16 = 0.063;
+            }
+            if(alturaTrilho == "h8"){
+                var volume = (largura * comprimento * h8);
+            }
+            if(alturaTrilho == "h10"){
+                var volume = (largura * comprimento * h10);
+            }
+            if(alturaTrilho == "h12"){
+                var volume = (largura * comprimento * h12);
+            }
+            if(alturaTrilho == "h16"){
+                var volume = (largura * comprimento * h16);
+            }
+
+            document.getElementById("resultado-laje").innerText = volume.toFixed(2);
+        }
+    </script>
+</head>
+
+<body>
+    <header class="navegacao">
+        <div class="menus-navegacao">
+            <h1 class="logo">CONCRECALC</h1>
+            <ul class="nav-texto">
+                <li class="texto-menu"><a href="#estaca">ESTACAS</a></li>
+                <li class="texto-menu"><a href="#bloco">BLOCOS</a></li>
+                <li class="texto-menu"><a href="#viga">VIGAS</a></li>
+                <li class="texto-menu"><a href="#pilar">PILARES</a></li>
+                <li class="texto-menu"><a href="#laje">LAJES</a></li>
+            </ul>
+        </div>
+    </header>
+    <!--ESTACAS-->
+    <section id="estaca" class="secao">
+        <div class="margem-superior"></div>
+        <div class="titulo-secao">Calculo do volume de concreto para estacas</div>
+        <div class="dados-entrada">
+            <label>Diâmetro:</label>
+            <input class="caixa-entrada" type="number" id="diametro-estaca">
+            <label>comprimento:</label>
+            <input class="caixa-entrada" type="number" id="comprimento-estaca">
+            <label>Quantidade de estacas:</label>
+            <input class="caixa-entrada" type="number" id="quantidade-estaca">
+        </div>
+        <div class="btn">
+            <button onclick="exibirCalculoEstaca()">Calcular</button>
+        </div>
+        <div class="resultado">
+            <label>Volume por estaca (m³):</label>
+            <textarea readonly class="caixa-saida" id="resultado-estaca"></textarea>
+            <label>Volume total (m³):</label>
+            <textarea readonly class="caixa-saida" id="resultado-estaca-total"></textarea>
+        </div>
+    </section>
+    <!--BLOCOS-->
+    <section id="bloco" class="secao">
+        <div class="titulo-secao">Calculo do volume de concreto para blocos retangulares</div>
+        <div class="dados-entrada">
+            <label>Largura:</label>
+            <input class="caixa-entrada" type="number" id="largura-bloco">
+            <label>Comprimento:</label>
+            <input class="caixa-entrada" type="number" id="comprimento-bloco">
+            <label>Altura:</label>
+            <input class="caixa-entrada" type="number" id="altura-bloco">
+            <label>Quantidade de blocos:</label>
+            <input class="caixa-entrada" type="number" id="quantidade-bloco">
+        </div>
+        <div class="btn">
+            <button onclick="exibirCalculoBloco()">Calcular</button>
+        </div>
+        <div class="resultado">
+            <label>Volume por bloco (m³):</label>
+            <textarea readonly class="caixa-saida" id="resultado-bloco"></textarea><br />
+            <label>Volume total (m³):</label>
+            <textarea readonly class="caixa-saida" id="resultado-bloco-total"></textarea>
+        </div>
+    </section>
+
+    <!--VIGAS-->
+    <section id="viga" class="secao">
+        <div class="titulo-secao">Calculo do volume de concreto para vigas retangulares</div>
+        <div class="dados-entrada">
+            <label>Largura:</label>
+            <input class="caixa-entrada" type="number" id="largura-viga">
+            <label>Comprimento:</label>
+            <input class="caixa-entrada" type="number" id="comprimento-viga">
+            <label>Altura:</label>
+            <input class="caixa-entrada" type="number" id="altura-viga">
+            <label>Quantidade de vigas:</label>
+            <input class="caixa-entrada" type="number" id="quantidade-viga">
+        </div>
+        <div class="btn">
+            <button onclick="exibirCalculoViga()">Calcular</button>
+        </div>
+        <div class="resultado">
+            <label>Volume por bloco (m³):</label>
+            <textarea readonly class="caixa-saida" id="resultado-viga"></textarea><br />
+            <label>Volume total (m³):</label>
+            <textarea readonly class="caixa-saida" id="resultado-viga-total"></textarea>
+        </div>
+    </section>
+
+    <!--PILARES-->
+    <section id="pilar" class="secao">
+        <div class="titulo-secao">Calculo do volume de concreto para pilares retangulares</div>
+        <div class="dados-entrada">
+            <label>Largura:</label>
+            <input class="caixa-entrada" type="number" id="largura-pilar">
+            <label>Comprimento:</label>
+            <input class="caixa-entrada" type="number" id="comprimento-pilar">
+            <label>Altura:</label>
+            <input class="caixa-entrada" type="number" id="altura-pilar">
+            <label>Quantidade de pilares:</label>
+            <input class="caixa-entrada" type="number" id="quantidade-pilar">
+        </div>
+        <div class="btn">
+            <button onclick="exibirCalculoPilar()">Calcular</button>
+        </div>
+        <div class="resultado">
+            <label>Volume por pilar (m³):</label>
+            <textarea readonly class="caixa-saida" id="resultado-pilar"></textarea><br />
+            <label>Volume total (m³):</label>
+            <textarea readonly class="caixa-saida" id="resultado-pilar-total"></textarea>
+        </div>
+    </section>
+        <!--LAJES-->
+        <section id="laje" class="secao-laje">
+            <div class="titulo-secao">Calculo do volume de concreto para lajes</div>
+            <div class="tipo-laje">
+                <label>Selecione o tipo de laje:</label>
+                <input type="radio" name="tipo-laje" value="trelicada" class="btn-radio">
+                <label class="texto-laje">Treliçada</label>
+                <input type="radio" name="tipo-laje" value="protendida" class="btn-radio">
+                <label class="texto-laje">Protendida</label>
+            </div>
+            <div class="tipo-laje">
+                <label>Selecione a altura do trilho:</label>
+                <input type="radio" name="altura-trilho" value="h8" class="btn-radio">
+                <label class="texto-laje">H8</label>
+                <input type="radio" name="altura-trilho" value="h10" class="btn-radio">
+                <label class="texto-laje">H10</label>
+                <input type="radio" name="altura-trilho" value="h12" class="btn-radio">
+                <label class="texto-laje">H12</label>
+                <input type="radio" name="altura-trilho" value="h16" class="btn-radio">
+                <label class="texto-laje">H16</label>
+            </div>
+            <div class="dados-entrada">
+                <label>Largura:</label>
+                <input class="caixa-entrada" type="number" id="largura-laje">
+                <label>Comprimento:</label>
+                <input class="caixa-entrada" type="number" id="comprimento-laje">
+            </div>
+            <div class="btn">
+                <button onclick="exibirCalculoLaje()">Calcular</button>
+            </div>
+            <div class="resultado">
+                <label>Volume total (m³):</label>
+                <textarea readonly class="caixa-saida" id="resultado-laje"></textarea><br />
+            </div>
+        </section>
+</body>
+</html>
