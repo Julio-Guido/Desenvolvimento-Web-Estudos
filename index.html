@@ -87,7 +87,10 @@
 <body>
     <header class="navegacao">
         <div class="menus-navegacao">
-            <h1 class="logo">CONCRECALC</h1>
+            <div class="logo-container">
+                <i class="fa-solid fa-calculator fa-2x"></i>
+                <h1 class="logo">CONCRECALC</h1>
+            </div>
             <ul class="nav-texto">
                 <li class="texto-menu"><a href="#estaca">ESTACAS</a></li>
                 <li class="texto-menu"><a href="#bloco">BLOCOS</a></li>
@@ -101,6 +104,9 @@
     <section id="estaca" class="secao">
         <div class="margem-superior"></div>
         <div class="titulo-secao">Calculo do volume de concreto para estacas</div>
+        <div class="observacao">
+            <label class="observacao">Digitar as medias em metros.</label>
+        </div>
         <div class="dados-entrada">
             <label>Diâmetro:</label>
             <input class="caixa-entrada" type="number" id="diametro-estaca">
@@ -122,6 +128,9 @@
     <!--BLOCOS-->
     <section id="bloco" class="secao">
         <div class="titulo-secao">Calculo do volume de concreto para blocos retangulares</div>
+        <div class="observacao">
+            <label class="observacao">Digitar as medias em metros.</label>
+        </div>
         <div class="dados-entrada">
             <label>Largura:</label>
             <input class="caixa-entrada" type="number" id="largura-bloco">
@@ -146,6 +155,9 @@
     <!--VIGAS-->
     <section id="viga" class="secao">
         <div class="titulo-secao">Calculo do volume de concreto para vigas retangulares</div>
+        <div class="observacao">
+            <label class="observacao">Digitar as medias em metros.</label>
+        </div>
         <div class="dados-entrada">
             <label>Largura:</label>
             <input class="caixa-entrada" type="number" id="largura-viga">
@@ -170,6 +182,9 @@
     <!--PILARES-->
     <section id="pilar" class="secao">
         <div class="titulo-secao">Calculo do volume de concreto para pilares retangulares</div>
+        <div class="observacao">
+            <label class="observacao">Digitar as medias em metros.</label>
+        </div>
         <div class="dados-entrada">
             <label>Largura:</label>
             <input class="caixa-entrada" type="number" id="largura-pilar">
@@ -211,6 +226,9 @@
                 <input type="radio" name="altura-trilho" value="h16" class="btn-radio">
                 <label class="texto-laje">H16</label>
             </div>
+            <div class="observacao">
+                <label class="observacao">Digitar as medias em metros.</label>
+            </div>
             <div class="dados-entrada">
                 <label>Largura:</label>
                 <input class="caixa-entrada" type="number" id="largura-laje">
@@ -225,5 +243,11 @@
                 <textarea readonly class="caixa-saida" id="resultado-laje"></textarea><br />
             </div>
         </section>
+            <!--Footer-->
+    <footer id="footer">
+        <p>Copyright 2023 - Todos os direitos reservados - Desenvolvido por Julio Guido</p>
+    </footer>
+    <!--Fonte Awsome-->
+    <script src="https://kit.fontawesome.com/6dbff48dad.js" crossorigin="anonymous"></script>
 </body>
 </html>
